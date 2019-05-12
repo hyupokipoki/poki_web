@@ -45,47 +45,41 @@ export default {
     //   pushMsgData: Constant.PUSH_MSG_DATA
     // }),
     getMessages() {
-      this.$http.get("http://localhost:3000/msgDatas").then(res => {
-        this.msgDatas = res.data;
+      this.$http.get("http://localhost:3000/tests/"+this.uid).then(res => {
+        console.log(res.data);
+
+        this.msgDatas=(res.data);
       });
     },
     sendMessage(msg) {
-      this.msgDatas.push(
-        { userName: this.userName },
-        { userId: this.uid },
-        { msg: msg }
-      );
-
-      // fetch("https://jsonplaceholder.typicode.com/msg/1")
-      //   .then(response => {
-      //     if (response.ok) {
-      //       return response.json;
-      //       throw new Error("Network response was not ok");
-      //     }
-      //   })
-      //   .then(json => {
-      //     this.msgDatas.push(
-      //       { userName: this.userName },
-      //       { userId: this.uid },
-      //       { msg: msg }
-      //     );
-      //   })
-      //   .catch(error => {
-      //     console.log(error);
-      //   });
-    
+      // this.msgDatas.push(
+      //   { name: this.userName },
+      //   { uid: this.uid },
+      //   { msg: msg }
+      // );
+      var newChat = {
+        uid: this.uid,
+        name: this.userName,
+        msg: msg
+      }
       this.$http
-        .post("http://localhost:3000/msgDatas", {
-          userName: this.userName,
-          userId: this.uid,
-          msg: msg
-        })
+        .post("http://localhost:3000/tests", 
+          newChat,
+          { useCredentails: true },
+          { header:
+        'Access-Control-Allow-Origin: *',
+      },
+        )
         .then(res => {
+
           console.log(res);
           console.log(res.data);
-          this.msgDatas.push(res.data);
+          this.getMessages();
+          // this.msgDatas.push(res.data);
         })
         .catch(error => {
+          console.log('dd');
+          
           console.log(error.message);
         });
       /**

@@ -4,7 +4,7 @@
 
     <transition-group name="list">
       <div v-for="(msg,index) in msgs" v-bind:key="index">
-        <div class="user-chat-container" v-if="msgs.userName !== 'admin'">
+        <div class="user-chat-container" v-if="msg.name !== 'admin'">
           <span class="user-chat">{{msg.msg}}</span>
         </div>
       </div>
