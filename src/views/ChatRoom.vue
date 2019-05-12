@@ -58,7 +58,8 @@ export default {
       //   { msg: msg }
       // );
       var newChat = {
-        uid: this.uid,
+        fromUid: this.uid,
+        toUid: 'poki',
         name: this.userName,
         msg: msg
       }

@@ -4,8 +4,11 @@
 
     <transition-group name="list">
       <div v-for="(msg,index) in msgs" v-bind:key="index">
-        <div class="user-chat-container" v-if="msg.name !== 'admin'">
+        <div class="user-chat-container" v-if="msg.fromUid !== 'poki'">
           <span class="user-chat">{{msg.msg}}</span>
+        </div>
+        <div class="poki-chat-container" v-if="msg.fromUid == 'poki'">
+          <span class="poki-chat">!!{{msg.msg}}</span>
         </div>
       </div>
     </transition-group>
@@ -46,5 +49,10 @@ export default {
 .user-chat {
   padding: 2px;
   margin-right: 8px;
+}
+.poki-chat {
+  padding: 2px;
+  margin-right: 8px;
+  color: red;
 }
 </style>
