@@ -45,7 +45,7 @@ export default {
     //   pushMsgData: Constant.PUSH_MSG_DATA
     // }),
     getMessages() {
-      this.$http.get("http://localhost:3000/tests/"+this.uid).then(res => {
+      this.$http.get("http://211.51.76.18:3000/tests/"+this.uid).then(res => {
         console.log(res.data);
 
         this.msgDatas=(res.data);
@@ -64,7 +64,7 @@ export default {
         msg: msg
       }
       this.$http
-        .post("http://localhost:3000/tests", 
+        .post("http://211.51.76.18:3000/tests", 
           newChat,
           { useCredentails: true },
           { header:
