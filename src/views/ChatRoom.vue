@@ -17,7 +17,7 @@ export default {
       datas: [],
       uid: this.getRandomId(),
       userName: "",
-      msgDatas: []
+      msgDatas: [],
     };
   },
   components: {
@@ -125,9 +125,9 @@ export default {
   overflow-x: scroll;
 }
 
-.msg-form {
+/* .msg-form {
   padding: 8px;
-}
+} */
 /* .msg-form {
   bottom: -28px;
   position: absolute;

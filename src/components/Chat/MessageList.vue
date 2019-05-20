@@ -1,6 +1,8 @@
 <template>
   <div v-auto-bottom="msgs">
-    <span>Hi, {{userName}}</span>
+    <div class="poki-chat-container">
+      <span class="poki-chat">Hi, {{userName}}</span>
+    </div>
 
     <transition-group name="list">
       <div v-for="(msg,index) in msgs" v-bind:key="index">
@@ -42,6 +44,7 @@ export default {
 }
 
 .user-chat-container {
+  margin-top: 8px;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -50,9 +53,16 @@ export default {
   padding: 2px;
   margin-right: 8px;
 }
+
+.poki-chat-container {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+}
+
 .poki-chat {
   padding: 2px;
-  margin-right: 8px;
+  margin-left: 8px;
   color: red;
 }
 </style>
